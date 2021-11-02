@@ -1,10 +1,9 @@
 pipeline { 
     agent any  
     stages { 
-        stage('Build') { 
-            steps {
-                sh "${mavenPath} -Precette clean install -DJAVA_HOME=${javaHome}"
-                }
+          stage('SCM') {
+    checkout scm
+  }
         } 
         stage('SonarQube analysis') {
             steps {
@@ -14,4 +13,5 @@ pipeline {
               
             }
      
+        }
         }
