@@ -3,10 +3,9 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    steps {
                 withSonarQubeEnv('sonarqube') {
                     sh "${mavenPath} -Psonar sonar:sonar"
                 }
-  }
+  
 }
 }
