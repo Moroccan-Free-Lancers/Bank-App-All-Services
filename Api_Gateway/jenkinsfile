@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-                def mvn = tool 'MAVEN_HOME';
+                def mvn = tool 'Default Maven';
                 withSonarQubeEnv('sonarqube') {
                     sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Backend-test -Dsonar.login=admin -Dsonar.password=lamya2210"
                 }
